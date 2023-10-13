@@ -9,6 +9,8 @@ script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 501.449, 342.699 )
+z_index = 50
+z_as_relative = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
