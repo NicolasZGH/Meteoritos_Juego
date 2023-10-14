@@ -19,6 +19,7 @@ onready var estela:Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 
+
 # Métodos
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
@@ -36,6 +37,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if event.is_action_released("disparo_secundario"):
 		laser.set_is_casting(false)
+		
+	# Control estela del cohete
+	if event.is_action_pressed("Adelante"):
+		estela.set_max_points(estela_maxima)
+		motor_sfx.sonido_on()
+	elif event.is_action_pressed("Atrás"):
+		estela.set_max_points(0)
+		motor_sfx.sonido_off()
 	
 func _ready() -> void:
 	controlador_estados(estado_actual)
