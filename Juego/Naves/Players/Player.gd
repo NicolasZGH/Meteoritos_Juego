@@ -54,7 +54,8 @@ func controlador_estados(nuevo_estado: int) -> void:
 			colisionador.set_deferred("disabled", true)
 		ESTADO.MUERTO:
 			colisionador.set_deferred("disabled", true)
-			cannon.set_puede_disparar(false)
+			cannon.set_puede_disparar(true)
+			Eventos.emit_signal("nave_destruida", global_position)
 			queue_free()
 			
 	estado_actual = nuevo_estado
@@ -66,7 +67,7 @@ func esta_input_activo() -> bool:
 	
 	return true
 	
-
+	
 func player_input() -> void:
 	if not esta_input_activo():
 		return
@@ -93,6 +94,9 @@ func player_input() -> void:
 		
 # Enums
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
+
+func destruir() -> void:
+	controlador_estados(ESTADO.MUERTO)
 
 #Señales internas
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
