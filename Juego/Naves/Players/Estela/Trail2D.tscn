@@ -2,14 +2,15 @@
 
 [ext_resource path="res://Juego/Naves/Players/Estela/Trail2D.gd" type="Script" id=1]
 
-
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
 [sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 0.294118, 0.356863, 0.670588, 0, 0.294118, 0.356863, 0.670588, 1 )
+colors = PoolColorArray( 0.294118, 0.356863, 0.670588, 0, 0.866667, 0.607843, 0.156863, 1 )
 
 [node name="Trail2D" type="Line2D"]
+position = Vector2( 0, -1.19209e-07 )
+scale = Vector2( 1, 0.763765 )
 points = PoolVector2Array( 0, 0, 32, 0 )
 width_curve = SubResource( 1 )
 default_color = Color( 1, 1, 1, 1 )
