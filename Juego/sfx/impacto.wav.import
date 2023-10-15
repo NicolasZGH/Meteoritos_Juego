@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/impacto.wav-86789dfc0b1d1c48ba810afbb5827d5c.sample"
+
+[deps]
+
+source_file="res://Juego/sfx/impacto.wav"
+dest_files=[ "res://.import/impacto.wav-86789dfc0b1d1c48ba810afbb5827d5c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

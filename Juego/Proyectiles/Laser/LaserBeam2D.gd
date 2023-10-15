@@ -10,11 +10,13 @@ export var cast_speed := 7000.0
 export var max_length := 1400.0
 # Base duration of the tween animation in seconds.
 export var growth_time := 0.1
+export var radio_damage:int = 10.0
 
 # If `true`, the laser is firing.
 # It plays appearing and disappearing animations when it's not animating.
 # See `appear()` and `disappear()` for more information.
 var is_casting := false setget set_is_casting
+
 
 onready var fill := $FillLine2D
 onready var tween := $Tween
@@ -32,7 +34,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	cast_to = (cast_to + Vector2.RIGHT * cast_speed * delta).clamped(max_length)
-	cast_beam()
+	cast_beam(delta)
 
 
 func set_is_casting(cast: bool) -> void:
@@ -55,9 +57,10 @@ func set_is_casting(cast: bool) -> void:
 	casting_particles.emitting = is_casting
 
 
+
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
-func cast_beam() -> void:
+func cast_beam(delta: float) -> void:
 	var cast_point := cast_to
 
 	force_raycast_update()
@@ -67,6 +70,8 @@ func cast_beam() -> void:
 		cast_point = to_local(get_collision_point())
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
+		if get_collider().has_method("recibir_damage"):
+			get_collider().recibir_damage(radio_damage * delta)
 
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5

@@ -19,7 +19,7 @@ func crear_contenedores() -> void:
 	contenedor_proyectiles.name = "ContenedorProyectiles"
 	add_child(contenedor_proyectiles)
 
-func _on_disparo(proyectil:ProyectilPlayer) -> void:
+func _on_disparo(proyectil:Proyectil) -> void:
 	contenedor_proyectiles.add_child(proyectil)
 
 func _on_nave_destruida(posicion: Vector2) -> void:
