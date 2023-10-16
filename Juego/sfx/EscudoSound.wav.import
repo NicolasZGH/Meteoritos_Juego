@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/EscudoSound.wav-148f4b29b99a18dc984d5b6f7506fcfa.sample"
+
+[deps]
+
+source_file="res://Juego/sfx/EscudoSound.wav"
+dest_files=[ "res://.import/EscudoSound.wav-148f4b29b99a18dc984d5b6f7506fcfa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
