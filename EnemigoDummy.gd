@@ -12,5 +12,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if body is Player:
 		body.destruir()
 
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	$Cannon.set_esta_disparando(true)

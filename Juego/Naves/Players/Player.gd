@@ -24,10 +24,12 @@ onready var escudo:Escudo = $Escudo
 
 
 # Métodos
+# warning-ignore:unused_argument
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
 	apply_torque_impulse(dir_rotacion * potencia_rotacion)
 	
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	player_input()
 	
